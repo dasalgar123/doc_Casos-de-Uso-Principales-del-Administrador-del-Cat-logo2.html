@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Gardem - Casos de Uso</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s ease;
+            vertical-align: top;
+        }
+        
+        tr:hover td {
+            background-color: #f8f9ff;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .main-case {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.2em;
+            background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%);
+            border-left: 4px solid #667eea;
+            padding: 15px !important;
+        }
+        
+        .sub-case {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+            padding-left: 25px;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .example {
+            color: #888;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 8px;
+            background: #f9f9f9;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #ddd;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+            margin-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-cliente {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+        
+        .badge-admin {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .badge-catalogo {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .badge-pedido {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        
+        .user-type {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            th, td {
+                padding: 12px 10px;
+            }
+            
+            th {
+                font-size: 1em;
+            }
+            
+            .main-case {
+                font-size: 1.1em;
+            }
+            
+            .sub-case {
+                font-size: 1em;
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Casos de Uso del Sistema Gardem</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Caso de Uso</th>
+                        <th>Descripción</th>
+                        <th>Actor</th>
+                        <th>Funcionalidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- CASOS DE USO DEL CLIENTE -->
+                    <tr>
+                        <td class="main-case">
+                            <span class="icon">🛍️</span>
+                            Gestionar Catálogo Digital
+                        </td>
+                        <td class="description">
+                            Engloba las interacciones del cliente con la interfaz del catálogo para explorar y conocer los productos disponibles.
+                            <div class="example">
+                                <strong>Flujo:</strong> Cliente accede → Navega categorías → Explora productos → Usa filtros de búsqueda
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                            <span class="badge badge-cliente">Usuario Final</span>
+                        </td>
+                        <td>
+                            Navegación y exploración del catálogo
+                            <span class="badge badge-catalogo">Catálogo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">🔍</span>
+                            Acceder y Navegar el Catálogo
+                        </td>
+                        <td class="description">
+                            El cliente puede cargar el catálogo y moverse por sus diferentes secciones de manera intuitiva.
+                            <div class="example">
+                                <strong>Acciones:</strong> Cargar página principal, navegar por categorías, usar menú de navegación
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Navegación básica
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">👁️</span>
+                            Visualizar Productos Detallados
+                        </td>
+                        <td class="description">
+                            El cliente puede ver información completa de cada artículo incluyendo imágenes, descripciones, tallas y colores disponibles.
+                            <div class="example">
+                                <strong>Información mostrada:</strong> Imágenes en alta resolución, descripción detallada, tabla de tallas, colores disponibles, precio
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Visualización detallada
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">🔎</span>
+                            Buscar y Filtrar Productos
+                        </td>
+                        <td class="description">
+                            El cliente puede usar herramientas de búsqueda y filtrado para encontrar productos específicos que cumplan sus criterios.
+                            <div class="example">
+                                <strong>Filtros disponibles:</strong> Por categoría, talla, color, rango de precio, marca, disponibilidad
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Búsqueda avanzada
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="main-case">
+                            <span class="icon">📦</span>
+                            Gestionar Pedido
+                        </td>
+                        <td class="description">
+                            Engloba todo el proceso de selección y envío de productos, desde la adición a la cesta hasta la confirmación del pedido.
+                            <div class="example">
+                                <strong>Flujo completo:</strong> Seleccionar productos → Añadir a cesta → Revisar pedido → Enviar vía WhatsApp
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                            <span class="badge badge-cliente">Usuario Final</span>
+                        </td>
+                        <td>
+                            Proceso de compra
+                            <span class="badge badge-pedido">Pedido</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">➕</span>
+                            Añadir Producto a la Cesta
+                        </td>
+                        <td class="description">
+                            El cliente selecciona ítems específicos con sus variantes (talla, color) y los añade a su cesta virtual de compras.
+                            <div class="example">
+                                <strong>Proceso:</strong> Seleccionar producto → Elegir talla y color → Definir cantidad → Añadir a cesta
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Selección de productos
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">✏️</span>
+                            Revisar y Modificar Cesta
+                        </td>
+                        <td class="description">
+                            El cliente puede ver el contenido completo de su cesta, ajustar cantidades, eliminar productos o modificar variantes.
+                            <div class="example">
+                                <strong>Opciones:</strong> Ver resumen de pedido, cambiar cantidades, eliminar ítems, modificar tallas/colores, calcular total
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Gestión de cesta
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">📱</span>
+                            Enviar Pedido vía WhatsApp
+                        </td>
+                        <td class="description">
+                            El cliente finaliza su selección y envía un resumen detallado del pedido a Gardem a través de WhatsApp para su procesamiento.
+                            <div class="example">
+                                <strong>Información enviada:</strong> Lista de productos, cantidades, tallas, colores, total estimado, datos del cliente
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Cliente</span>
+                        </td>
+                        <td>
+                            Confirmación de pedido
+                        </td>
+                    </tr>
+                    
+                    <!-- CASOS DE USO DEL ADMINISTRADOR -->
+                    <tr>
+                        <td class="main-case">
+                            <span class="icon">⚙️</span>
+                            Gestionar Contenido del Catálogo
+                        </td>
+                        <td class="description">
+                            Engloba todas las acciones que el personal de Gardem realiza para mantener el catálogo actualizado y optimizado.
+                            <div class="example">
+                                <strong>Responsabilidades:</strong> Mantener inventario actualizado, gestionar información de productos, optimizar catálogo
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Administrador</span>
+                            <span class="badge badge-admin">Personal Gardem</span>
+                        </td>
+                        <td>
+                            Gestión del sistema
+                            <span class="badge badge-catalogo">Catálogo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">📝</span>
+                            Añadir Productos
+                        </td>
+                        <td class="description">
+                            El administrador puede subir nuevos productos al catálogo con toda su información asociada, imágenes y variantes.
+                            <div class="example">
+                                <strong>Datos requeridos:</strong> Nombre, descripción, imágenes, precio, categoría, tallas disponibles, colores, stock
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Administrador</span>
+                        </td>
+                        <td>
+                            Creación de contenido
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">✏️</span>
+                            Editar Productos
+                        </td>
+                        <td class="description">
+                            El administrador puede modificar la información de productos existentes, actualizar precios, descripciones o disponibilidad.
+                            <div class="example">
+                                <strong>Modificaciones típicas:</strong> Actualizar precios, cambiar descripciones, añadir/quitar tallas, actualizar stock, cambiar imágenes
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Administrador</span>
+                        </td>
+                        <td>
+                            Actualización de contenido
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-case">
+                            <span class="icon">🗑️</span>
+                            Eliminar Productos
+                        </td>
+                        <td class="description">
+                            El administrador puede retirar productos del catálogo cuando ya no estén disponibles o hayan sido descontinuados.
+                            <div class="example">
+                                <strong>Motivos de eliminación:</strong> Producto descontinuado, sin stock permanente, cambio de proveedor, temporada finalizada
+                            </div>
+                        </td>
+                        <td>
+                            <span class="user-type">Administrador</span>
+                        </td>
+                        <td>
+                            Gestión de inventario
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
